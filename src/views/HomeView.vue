@@ -11,7 +11,7 @@
           pause-on-hover
           style="transform: translate3d(0%, 0%, 0px) scale(1)"
         ></video>
-        <div class="slogan">美好生活欢迎您</div>
+        <div class="slogan" style="font-family: shuhan">美好生活欢迎您</div>
         <div class="content01">
           <div id="title">无困难</div>
           <div id="right">
@@ -21,6 +21,9 @@
               </el-carousel-item>
             </el-carousel>
             <input class="search" />
+            <button class="submit">
+              <el-icon :color="black"><Search /></el-icon>
+            </button>
           </div>
         </div>
       </section>
@@ -94,15 +97,6 @@
         </div>
       </section>
       <!-- <section id="sec05">
-        <h1>04</h1>
-        <div class="service">
-          <div class="serve1"></div>
-          <div class="serve2"></div>
-          <div class="serve3"></div>
-          <div class="serve4"></div>
-          <div class="serve5"></div>
-          <div class="serve6"></div>
-        </div>
       </section> -->
       <section id="sec06">
         <!-- <h1>footer</h1> -->
@@ -118,14 +112,14 @@ export default {
     return {};
   },
   methods: {
-    dynamic(event) {
-      let countX = -(event.clientX / document.documentElement.clientWidth) * 12;
-      let countY =
-        -(event.clientY / document.documentElement.clientHeight) * 18;
-      document.getElementById(
-        "backvideo"
-      ).style.transform = `translate3d(${countX}%, ${countY}%, 0px) scale(1.2)`;
-    },
+    // dynamic(event) {
+    //   let countX = -(event.clientX / document.documentElement.clientWidth) * 12;
+    //   let countY =
+    //     -(event.clientY / document.documentElement.clientHeight) * 18;
+    //   document.getElementById(
+    //     "backvideo"
+    //   ).style.transform = `translate3d(${countX}%, ${countY}%, 0px) scale(1.2)`;
+    // },
   },
 };
 </script>
@@ -182,6 +176,9 @@ body {
               border-radius: 2vw;
               background-color: skyblue;
             }
+            [class^="serve"] {
+              background-image: linear-gradient(0.36turn, #84fab0, #8fd3f4);
+            }
           }
         }
         #sec01 {
@@ -189,7 +186,6 @@ body {
           display: flex;
           overflow: hidden;
           align-items: flex-end;
-
           video {
             position: absolute;
             top: 0;
@@ -220,6 +216,7 @@ body {
               font-size: 6vw;
             }
             #right {
+              position: relative;
               width: 50vw;
               height: 70vh;
               .el-carousel {
@@ -241,10 +238,21 @@ body {
                 background-color: rgba(140, 150, 160, 0.5);
               }
               .search {
+                position: absolute;
+                right: 18vw;
+                bottom: 4vh;
                 width: 20vw;
                 height: 10vh;
                 background-color: white;
-                border-radius: 6vw;
+                border-radius: 5vw;
+              }
+              .submit {
+                position: absolute;
+                right: 12vw;
+                bottom: 4vh;
+                width: 10vh;
+                height: 10vh;
+                border-radius: 5vh;
               }
             }
           }
@@ -281,12 +289,6 @@ body {
         }
         #sec05 {
           display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          h1 {
-            margin: 0 0 0 6vw;
-          }
         }
         #sec06 {
           display: flex;

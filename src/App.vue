@@ -48,6 +48,8 @@ export default {
           <a href="javascript:history.back(-1)">
             <img class="logo" src="./assets/logo.png" />
           </a>
+          <div>无困难</div>
+          <div>Without Problem</div>
         </div>
 
         <div id="router">
@@ -94,6 +96,8 @@ body {
       padding: 0;
       animation: generate 1.2s ease-in-out forwards;
       header {
+        backdrop-filter: blur(30px);
+        border:solid .3vh rgba(255, 255, 255, 0.3);
         z-index: 99;
         display: flex;
         flex-direction: row;

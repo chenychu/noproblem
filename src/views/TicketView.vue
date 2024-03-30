@@ -34,7 +34,12 @@
           </div>
         </div>
       </div>
-      <div class="panel"></div>
+      <div class="cinemas">
+        <div class="cinema"></div>
+        <div class="cinema"></div>
+        <div class="cinema"></div>
+        <div class="cinema"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -153,12 +158,15 @@ body {
             }
           }
         }
-        .panel {
+        .cinemas {
           position: absolute;
+          display: flex;
+          flex-direction: column;
           top: 15vh;
-          right: 4vh;
+          right: 2vh;
           width: 50vw;
           height: 55vh;
+          border-radius: 2vh;
           background-color: #ffffff31;
         }
       }

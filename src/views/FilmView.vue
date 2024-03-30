@@ -111,7 +111,7 @@ body {
     .contains {
       width: 100%;
       height: 100vh;
-      background-color: #fff;
+      background-color: rgb(18, 56, 116);
       .film {
         width: 100%;
         height: 100vh;
@@ -124,7 +124,7 @@ body {
           margin: 5vh 0vw 0 0.8vw;
           width: 50vw;
           height: 80vh;
-          color: black;
+          color: white;
           h1 {
             padding: 0 0 0 0.8vw;
             width: 100%;

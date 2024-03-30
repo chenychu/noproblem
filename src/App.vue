@@ -1,7 +1,6 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import Loading from "./components/loading.vue";
-
 export default {
   name: "App",
   components: {
@@ -15,6 +14,9 @@ export default {
           this.$refs.loading.out();
         }
       }, 300);
+    },
+    scrollToHome() {
+      document.getElementById("home").scrollIntoView();
     },
     scrollToP1() {
       document.getElementById("life").scrollIntoView();
@@ -41,6 +43,18 @@ export default {
 <template>
   <div>
     <Loading ref="loading" />
+    <button class="tohome" @click="scrollToHome()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1024 1024"
+        data-v-ea893728=""
+      >
+        <path
+          fill="currentColor"
+          d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8 316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"
+        ></path>
+      </svg>
+    </button>
     <div class="main">
       <header>
         <div class="left">
@@ -77,6 +91,7 @@ export default {
           </button>
         </div>
       </header>
+      <!-- ---------------子页面----------------- -->
       <RouterView />
     </div>
   </div>
@@ -92,10 +107,27 @@ body {
   padding: 0;
   margin: 0;
   #app {
+    position: relative;
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
+    .tohome {
+      position: absolute;
+      padding: .5vh 0 0 0;
+      z-index: 99;
+      right: 0;
+      bottom: 2vh;
+      width: 3vw;
+      height: 3vw;
+      border: none;
+      border-radius: 1vw 0 0 1vw;
+      background-color: black;
+      svg{
+        color: white;
+        width: 2vw;
+      }
+    }
     .main {
       z-index: 1;
       width: 100vw;

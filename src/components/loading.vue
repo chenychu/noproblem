@@ -29,6 +29,11 @@ export default {
 
 
 <style lang="scss">
+@font-face {
+  font-family: shuhan;
+  src: url("../assets/font/上首蜀汉体.ttf") format("truetype");
+}
+
 #loading {
   position: fixed;
   display: flex;

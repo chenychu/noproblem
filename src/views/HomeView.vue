@@ -27,7 +27,7 @@ export default {
         <div>探索精彩活动，发现多彩世界</div>
         <div>一切尽在无困难平台！</div>
         <div style="margin: 1vw 0 0 0">加入我们，开启高效便捷新生活！</div>
-        <div class="entitle" style="margin: 1vw 0 0 0">
+        <div class="entitle" style="margin-top: 0.5vw">
           A Better Life, One Stop Solution
         </div>
         <div class="entitle">
@@ -43,26 +43,31 @@ export default {
       <div class="down">
         <div class="left">
           <el-carousel height="36vh" indicator-position="outside">
-            <el-carousel-item><img style="width: 100%" src="../assets/images/home/img1.jpg" alt="" /></el-carousel-item>
+            <el-carousel-item
+              ><img
+                style="width: 100%"
+                src="../assets/images/home/img1.jpg"
+                alt=""
+            /></el-carousel-item>
           </el-carousel>
         </div>
-        <div class="right"></div>
+        <div class="right">
+          <input placeholder="请输入需要查询的服务" type="text" />
+          <button>搜索</button>
+        </div>
       </div>
     </section>
     <!-- -----------------生活模块----------------- -->
     <section id="life">
       <div class="piclist">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <img src="../assets/images/servepics/lifeback.jpg" alt="" />
+        <div class="sectitle">生活模块</div>
       </div>
       <div class="serlist">
         <router-link to="/lifebill">
           <div class="serve">
             <div class="sername">生活缴费</div>
+            <img src="../assets/images/servepics/lifebill.jpg" alt="" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -78,6 +83,11 @@ export default {
         <router-link to="/film">
           <div class="serve">
             <div class="sername">观影指南</div>
+            <img
+              style="top: -15vh"
+              src="../assets/images/servepics/film.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -92,6 +102,11 @@ export default {
         ><router-link to="/parkcar">
           <div class="serve">
             <div class="sername">停车指南</div>
+            <img
+              style="top: -30vh"
+              src="../assets/images/servepics/parkcar.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -106,6 +121,11 @@ export default {
         ><router-link to="/logistics">
           <div class="serve">
             <div class="sername">物流查询</div>
+            <img
+              style="top: -45vh"
+              src="../assets/images/servepics/logistics.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -120,6 +140,11 @@ export default {
         ><router-link to="/smartbus">
           <div class="serve">
             <div class="sername">智慧巴士</div>
+            <img
+              style="top: -60vh"
+              src="../assets/images/servepics/smartbus.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -134,6 +159,11 @@ export default {
         ><router-link to="/subway">
           <div class="serve">
             <div class="sername">地铁交通</div>
+            <img
+              style="top: -75vh"
+              src="../assets/images/servepics/subway.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -152,17 +182,14 @@ export default {
     <!-- -----------------社区模块----------------- -->
     <section id="zone">
       <div class="piclist">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <img src="../assets/images/servepics/zoneback.jpg" alt="" />
+        <div class="sectitle">社区模块</div>
       </div>
       <div class="serlist">
         <router-link to="/outpatient">
           <div class="serve">
             <div class="sername">门诊预约</div>
+            <img src="../assets/images/servepics/outpatient.jpg" alt="" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -178,6 +205,11 @@ export default {
         <router-link to="/government">
           <div class="serve">
             <div class="sername">政府服务</div>
+            <img
+              style="top: -15vh"
+              src="../assets/images/servepics/government.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -192,6 +224,11 @@ export default {
         ><router-link to="/law">
           <div class="serve">
             <div class="sername">法律咨询</div>
+            <img
+              style="top: -30vh"
+              src="../assets/images/servepics/law.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -205,7 +242,12 @@ export default {
             <div class="process"></div></div></router-link
         ><router-link to="/volunteer">
           <div class="serve">
-            <div class="sername">支援活动</div>
+            <div class="sername">志愿活动</div>
+            <img
+              style="top: -45vh"
+              src="../assets/images/servepics/volunteer.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -220,6 +262,11 @@ export default {
         ><router-link to="/welfare">
           <div class="serve">
             <div class="sername">爱心公益</div>
+            <img
+              style="top: -60vh"
+              src="../assets/images/servepics/welfare.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -234,6 +281,11 @@ export default {
         ><router-link to="/youth">
           <div class="serve">
             <div class="sername">青年驿站</div>
+            <img
+              style="top: -75vh"
+              src="../assets/images/servepics/youth.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -252,17 +304,14 @@ export default {
     <!-- -----------------更多模块----------------- -->
     <section id="more">
       <div class="piclist">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <img src="../assets/images/servepics/moreback.jpg" alt="" />
+        <div class="sectitle">更多模块</div>
       </div>
       <div class="serlist">
         <router-link to="/house">
           <div class="serve">
             <div class="sername">房源信息</div>
+            <img src="../assets/images/servepics/house.jpg" alt="" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -278,6 +327,11 @@ export default {
         <router-link to="/job">
           <div class="serve">
             <div class="sername">工作招聘</div>
+            <img
+              style="top: -15vh"
+              src="../assets/images/servepics/job.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -292,6 +346,11 @@ export default {
         ><router-link to="/book">
           <div class="serve">
             <div class="sername">数字图书</div>
+            <img
+              style="top: -30vh"
+              src="../assets/images/servepics/book.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -306,6 +365,11 @@ export default {
         ><router-link to="/activity">
           <div class="serve">
             <div class="sername">活动管理</div>
+            <img
+              style="top: -45vh"
+              src="../assets/images/servepics/activity.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -320,6 +384,11 @@ export default {
         ><router-link to="/kitchen">
           <div class="serve">
             <div class="sername">厨房助手</div>
+            <img
+              style="top: -60vh"
+              src="../assets/images/servepics/kitchen.jpg"
+              alt=""
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -334,6 +403,11 @@ export default {
         ><router-link to="/trash">
           <div class="serve">
             <div class="sername">垃圾分类</div>
+            <img
+              style="top: -75vh"
+              src="../assets/images/servepics/trash.jpg"
+              alt=""
+            />>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1024 1024"
@@ -433,23 +507,49 @@ body {
         justify-content: center;
         background-color: rgb(18, 56, 116);
         .piclist {
+          overflow: hidden;
           position: relative;
-          background-color: white;
           width: 28vw;
           height: 90vh;
-          border-radius: 1vw 0 0 1vw;
+          border-radius: 2vh 0 0 2vh;
+          img {
+            width: 100%;
+          }
+          .sectitle {
+            position: absolute;
+            z-index: 99;
+            left: 1vw;
+            bottom: -1vw;
+            color: orangered;
+            font-size: 5vw;
+            font-family: shuhan;
+          }
         }
         .serlist {
-          overflow: hidden;
           display: flex;
           flex-direction: column;
           width: 60vw;
           height: 90vh;
-          border-radius: 0 1vw 1vw 0;
+          border-radius: 0 2vh 2vh 0;
           background-color: white;
           a {
             padding: 0;
             .serve {
+              &:hover {
+                .sername {
+                  font-size: 6vh;
+                  color: white;
+                }
+                img {
+                  opacity: 1;
+                }
+                svg {
+                  color: white;
+                }
+                .process {
+                  animation: process 0.3s ease-in-out both;
+                }
+              }
               cursor: pointer;
               position: relative;
               display: flex;
@@ -464,13 +564,23 @@ body {
                 font-family: shuhan;
                 transition: all 0.1s ease-in-out;
               }
+              img {
+                position: absolute;
+                opacity: 0;
+                top: 0vh;
+                left: -28.15vw;
+                width: 28vw;
+                height: 90vh;
+                border-radius: 2vh 0 0 2vh;
+                transition: all 0.3s ease;
+              }
               svg {
                 z-index: 2;
                 position: absolute;
                 right: 1vw;
                 width: 4vh;
                 color: black;
-                transition: all 0.3s ease-in-out;
+                transition: all 0.35s ease-in-out;
               }
 
               .process {
@@ -484,19 +594,7 @@ body {
                 transform: scaleX(0);
                 transform-origin: left center;
                 background-color: blue;
-                transition: all 0.3s ease-in-out;
-              }
-              &:hover {
-                .sername {
-                  font-size: 6vh;
-                  color: white;
-                }
-                svg {
-                  color: white;
-                }
-                .process {
-                  animation: process 0.2s ease-in-out both;
-                }
+                border-radius: 0 2vh 2vh 0;
               }
             }
           }
@@ -515,15 +613,23 @@ body {
           z-index: 0;
         }
         .up {
+          &:hover {
+            filter: blur(2px);
+          }
+          transition: all 0.2s ease-in-out;
           z-index: 1;
           width: 100%;
           padding: 0 0 0 4vw;
-          color: white;
+          color: rgb(255, 235, 210);
           font-size: 4vw;
           line-height: 4vw;
           .entitle {
-            font-size: 1vw;
+            font-size: 1.2vw;
             line-height: 1vw;
+            transition: all 0.5s ease-in-out;
+            &:hover {
+              filter: blur(0.5vh);
+            }
           }
         }
         .down {
@@ -540,10 +646,29 @@ body {
             background-color: white;
           }
           .right {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
             margin: 0 4vw 0 4vw;
-            width: 20%;
-            height: 36vh;
-            background-color: aqua;
+            width: 58%;
+            height: 34.6vh;
+            input,
+            button {
+              height: 8vh;
+              border: 0;
+              border-radius: 2vh;
+              font-family: shuhan;
+              font-size: 3.5vh;
+            }
+            input {
+              padding: 0 1vw 0 1.5vw;
+            }
+            button {
+              margin: 0 0 0 1vw;
+              width: 12vh;
+              color: white;
+              background-color: blue;
+            }
           }
         }
       }
@@ -625,7 +750,7 @@ body {
 
 @keyframes process {
   to {
-    transform: scaleX(1);
+    transform: scaleX(1.05);
   }
 }
 </style>

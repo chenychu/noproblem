@@ -17,16 +17,16 @@ export default {
       }, 300);
     },
     scrollToP1() {
-      document.getElementById("sec02").scrollIntoView();
+      document.getElementById("life").scrollIntoView();
     },
     scrollToP2() {
-      document.getElementById("sec03").scrollIntoView();
+      document.getElementById("zone").scrollIntoView();
     },
     scrollToP3() {
-      document.getElementById("sec04").scrollIntoView();
+      document.getElementById("more").scrollIntoView();
     },
     scrollToFooter() {
-      document.getElementById("sec06").scrollIntoView();
+      document.getElementById("about").scrollIntoView();
     },
   },
   mounted() {
@@ -42,25 +42,39 @@ export default {
   <div>
     <Loading ref="loading" />
     <div class="main">
-      <div id="upbtn"></div>
       <header>
-        <div style="display: flex; align-items: center">
+        <div class="left">
           <a href="javascript:history.back(-1)">
-            <img class="logo" src="./assets/logo.png" />
+            <img id="logo" src="./assets/logo.png" />
+            <img id="title" src="./assets/title.png" />
           </a>
-          <div>无困难</div>
-          <div>Without Problem</div>
         </div>
-
-        <div id="router">
-          <router-link to="/">首页</router-link>
-          <div @click="scrollToP1()" style="cursor: pointer">Part1</div>
-          <div @click="scrollToP2()" style="cursor: pointer">Part2</div>
-          <div @click="scrollToP3()" style="cursor: pointer">Part3</div>
-          <!-- <div style="cursor: pointer">Part4</div> -->
-          <div @click="scrollToFooter()" style="cursor: pointer">关于我们</div>
-
-          <button><router-link to="/login">登录/注册</router-link></button>
+        <div id="nav">
+          <router-link style="color: blue" to="/">
+            <div class="bar">首页</div>
+            <div class="baren">HOME</div>
+          </router-link>
+          <div @click="scrollToP1()" style="cursor: pointer">
+            <div class="bar">生活</div>
+            <div class="baren">LIFE</div>
+          </div>
+          <div @click="scrollToP2()" style="cursor: pointer">
+            <div class="bar">社区</div>
+            <div class="baren">ZONE</div>
+          </div>
+          <div @click="scrollToP3()" style="cursor: pointer">
+            <div class="bar">更多</div>
+            <div class="baren">MORE</div>
+          </div>
+          <div @click="scrollToFooter()" style="cursor: pointer">
+            <div class="bar">关于</div>
+            <div class="baren">ABOUT</div>
+          </div>
+          <button>
+            <router-link style="color: white" to="/login"
+              >登录/注册</router-link
+            >
+          </button>
         </div>
       </header>
       <RouterView />
@@ -69,11 +83,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "shuhan";
-  src: url("../assets/font/上首蜀汉体.ttf") format("truetype");
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -82,86 +91,83 @@ export default {
 body {
   padding: 0;
   margin: 0;
-
   #app {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-
     .main {
+      z-index: 1;
       width: 100vw;
       height: 100vh;
       margin: 0 auto;
       padding: 0;
       animation: generate 1.2s ease-in-out forwards;
       header {
-        backdrop-filter: blur(30px);
-        border:solid .3vh rgba(255, 255, 255, 0.3);
         z-index: 99;
+        position: fixed;
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        text-align: center;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        padding: 0 5vw;
-        width: 100%;
-        height: 14vh;
-        // background-color: rgba(0, 0, 0, 0.3);
-        color: black;
-
-        .logo {
-          width: 80px;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 8vh;
+        background-color: white;
+        .left {
+          display: flex;
+          height: 8vh;
+          align-items: center;
+          a {
+            margin: 0 0 0 4vw;
+            display: flex;
+            height: 8vh;
+            align-items: center;
+            #logo {
+              height: 6vh;
+            }
+            #title {
+              height: 6vh;
+            }
+          }
         }
-
-        .logotitle {
-          margin: 1vw;
-          font-size: 60px;
-        }
-
-        #router {
+        #nav {
           display: flex;
           align-items: center;
-          justify-content: center;
-          height: 14vh;
+          margin: 0 4vw 0 0;
+          height: 8vh;
+          color: black;
+          font-family: shuhan;
+          a,
           div {
-            // padding: 1.5vh 0 0 0;
-            width: 6vw;
-            height: 2vw;
-
-            margin: 0 0.2vh;
-            font-size: 1.6vw;
-            font-family: shuhan;
-          }
-
-          a {
-            width: 6vw;
-            height: 2vw;
-            margin: 0 0.2vh;
-            font-size: 1.6vw;
-            font-family: "shuhan";
-          }
-
-          .router-link-exact-active {
-            color: rgb(0, 104, 189);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 4vw;
-            height: 2vw;
+            .bar {
+              line-height: 1.2vw;
+              font-size: 1.2vw;
+            }
+            .baren {
+              font-size: 0.8vw;
+              line-height: 0.8vw;
+            }
           }
-
           button {
-            width: 10vw;
-            height: 2vw;
-            color: white;
-            margin: 0 0.5vw;
-            border: 0;
-            border-radius: 2vw;
-            background-color: rgb(0, 0, 0);
-            font-size: 1.6vw;
-            font-family: "shuhan";
+            border: 0cm;
+            border-radius: 0.6vw;
+            overflow: hidden;
+            margin: 0 0 0 1vw;
+            a {
+              display: flex;
+              justify-content: center;
+              height: 2vw;
+              width: 8vw;
+              background-color: black;
+              font-size: 1.2vw;
+              line-height: 1.2vw;
+              font-family: shuhan;
+            }
           }
         }
       }

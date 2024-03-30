@@ -85,9 +85,9 @@ body {
         overflow: hidden;
         background-image: linear-gradient(90deg, transparent, #000000),
           url("../assets/images/filmimg/filmbackpic012.jpeg"); // #fff表示需要兼容的底色
-        background-size: 40%, left;
+
         background-repeat: no-repeat;
-        background-position: right;
+        background-position: left;
         .info {
           position: absolute;
           bottom: 0;
@@ -145,7 +145,7 @@ body {
                 img {
                   border-radius: 1vh;
                 }
-                h3{
+                h3 {
                   cursor: pointer;
                   user-select: none;
                 }

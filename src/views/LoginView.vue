@@ -15,7 +15,6 @@
     <div class="panel">
       <div id="login">
         <div class="logtitle">登录</div>
-
         <input type="text" :placeholder="username" />
         <input type="password" :placeholder="password" />
         <input type="text" :placeholder="oncecode" />
@@ -68,9 +67,6 @@ export default {
       ).style.transform = `translate3d(${countX}%, ${countY}%, 0px) scale(1.2)`;
     },
   },
-  // mounted:{
-
-  // }
 };
 </script>
 
@@ -146,6 +142,19 @@ body {
             font-size: 1vw;
             border-radius: 2vh;
           }
+          button {
+            width: 10vw;
+            height: 6vh;
+            border: 0;
+            border-radius: 3vh;
+            color: white;
+            font-family: shuhan;
+            background-color: rgb(0, 38, 255);
+          }
+          &:last-child {
+            color: blue;
+            background-color: transparent;
+          }
         }
         #register {
           display: none;
@@ -163,6 +172,19 @@ body {
             padding: 0 0.8vw 0 0.8vw;
             font-size: 1vw;
             border-radius: 2vh;
+          }
+          button {
+            width: 10vw;
+            height: 6vh;
+            border: 0;
+            border-radius: 3vh;
+            color: white;
+            font-family: shuhan;
+            background-color: rgb(0, 38, 255);
+          }
+          &:last-child {
+            color: blue;
+            background-color: transparent;
           }
         }
       }

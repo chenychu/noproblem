@@ -101,6 +101,7 @@ export default {
 * {
   padding: 0;
   margin: 0;
+  -webkit-user-drag: none;
 }
 
 body {

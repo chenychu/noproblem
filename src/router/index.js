@@ -64,9 +64,9 @@ const router = createRouter({
       component: () => import('../views/OutPatientView.vue')
     },
     {
-      path: '/government',
-      name: 'government',
-      component: () => import('../views/GovernmentView.vue')
+      path: '/zone',
+      name: 'zone',
+      component: () => import('../views/ZoneView.vue')
     },
     {
       path: '/law',

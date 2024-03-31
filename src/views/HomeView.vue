@@ -202,12 +202,12 @@ export default {
             </svg>
             <div class="process"></div></div
         ></router-link>
-        <router-link to="/government">
+        <router-link to="/zone">
           <div class="serve">
-            <div class="sername">政府服务</div>
+            <div class="sername">社区服务</div>
             <img
               style="top: -15vh"
-              src="../assets/images/servepics/government.jpg"
+              src="../assets/images/servepics/zone.jpg"
               alt=""
             />
             <svg
@@ -476,6 +476,7 @@ export default {
   padding: 0;
   margin: 0;
   user-select: none;
+  -webkit-user-drag: none;
 }
 
 ::-webkit-scrollbar {
@@ -517,10 +518,10 @@ body {
           }
           .sectitle {
             position: absolute;
-            z-index: 99;
+            z-index: 80;
             left: 1vw;
             bottom: -1vw;
-            color: orangered;
+            color: blue;
             font-size: 5vw;
             font-family: shuhan;
           }
@@ -530,6 +531,7 @@ body {
           flex-direction: column;
           width: 60vw;
           height: 90vh;
+          border-left: solid black;
           border-radius: 0 2vh 2vh 0;
           background-color: white;
           a {
@@ -571,6 +573,8 @@ body {
                 left: -28.15vw;
                 width: 28vw;
                 height: 90vh;
+                box-sizing: border-box;
+                border: solid 0.5vh blue;
                 border-radius: 2vh 0 0 2vh;
                 transition: all 0.3s ease;
               }
@@ -613,9 +617,6 @@ body {
           z-index: 0;
         }
         .up {
-          &:hover {
-            filter: blur(2px);
-          }
           transition: all 0.2s ease-in-out;
           z-index: 1;
           width: 100%;

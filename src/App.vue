@@ -14,6 +14,9 @@ export default {
           this.$refs.loading.out();
         }
       }, 300);
+      fetch("127.0.0.1:5000")
+        .then((v) => v.text())
+        .then((v) => console.log(v));
     },
     scrollToHome() {
       document.getElementById("home").scrollIntoView();
@@ -115,7 +118,7 @@ body {
     height: 100vh;
     .tohome {
       position: absolute;
-      padding: .5vh 0 0 0;
+      padding: 0.5vh 0 0 0;
       z-index: 99;
       right: 0;
       bottom: 2vh;
@@ -124,7 +127,7 @@ body {
       border: none;
       border-radius: 1vw 0 0 1vw;
       background-color: black;
-      svg{
+      svg {
         color: white;
         width: 2vw;
       }

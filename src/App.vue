@@ -14,6 +14,9 @@ export default {
           this.$refs.loading.out();
         }
       }, 300);
+      fetch("http://127.0.0.1:8080")
+        .then((v) => v.text())
+        .then((v) => console.log(v));
     },
     scrollToHome() {
       document.getElementById("home").scrollIntoView();

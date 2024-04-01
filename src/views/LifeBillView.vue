@@ -3,17 +3,17 @@
     <div class="left">
       <div class="phonebill">
         手机充值
-        <div class="phoneinput">手机号:<input type="number" /></div>
+        <div class="phoneinput">手机号:<input type="text" /></div>
         <div class="phoneinput">充&nbsp;&nbsp;值:<input type="number" /></div>
         <div class="choosemoney">
           <div class="money">10元</div>
           <div class="money">20元</div>
+          <div class="money">30元</div>
           <div class="money">50元</div>
           <div class="money">100元</div>
           <div class="money">200元</div>
           <div class="money">300元</div>
           <div class="money">500元</div>
-          <div class="money">800元</div>
           <input placeholder="自定义" type="number" />
         </div>
         <button>立即充值</button>

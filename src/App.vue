@@ -14,7 +14,7 @@ export default {
           this.$refs.loading.out();
         }
       }, 300);
-      fetch("127.0.0.1:5000")
+      fetch("http://127.0.0.1:5000")
         .then((v) => v.text())
         .then((v) => console.log(v));
     },

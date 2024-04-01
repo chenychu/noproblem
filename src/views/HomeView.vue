@@ -2,6 +2,7 @@
 export default {
   data() {
     return {
+      url: "http://192.168.196.156",
       homeimg: [{}, {}, {}],
     };
   },
@@ -14,6 +15,13 @@ export default {
     //     "backvideo"
     //   ).style.transform = `translate3d(${countX}%, ${countY}%, 0px) scale(1.2)`;
     // },
+  },
+  mounted() {
+    console.log(this.url);
+         fetch(this.url + ":8080/prod-api/park/car/list")
+        .then((v) => v.text())
+        .then((v) => console.log(v));
+
   },
 };
 </script>

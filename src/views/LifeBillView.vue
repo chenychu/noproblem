@@ -36,7 +36,7 @@
     <div class="right">
       <el-carousel height="36vh">
         <el-carousel-item
-          ><img style="width: 100%" src="../assets/images/home/img1.jpg" alt=""
+          ><img style="width: 100%;height: 100%; object-fit: cover;" src="../assets/images/home/img1.jpg" alt=""
         /></el-carousel-item>
       </el-carousel>
       <Weather />

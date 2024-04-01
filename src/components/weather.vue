@@ -39,11 +39,12 @@ export default {
   },
   methods: {
     initAMap() {
+      let that = this;
       AMapLoader.load({
         key: "831af478329a22762f0a9ec9e9da9556", // 申请好的Web端开发者Key，首次调用 load 时必填
         version: "2.0", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
         plugins: ["AMap.CitySearch", "AMap.Weather"], // 需要使用的的插件列表，如比例尺'AMap.Scale'等
-      }).then((AMap) => {
+      }).then(AMap=> {
         AMap.plugin("AMap.CitySearch", function () {
           var citySearch = new AMap.CitySearch();
           citySearch.getLocalCity(function (status, result) {
@@ -57,7 +58,7 @@ export default {
                 //执行实时天气信息查询
                 weather.getLive(result.city, function (err, data) {
                   console.log(err, data);
-                  this.weatherData = data;
+                  that.weatherData = data;
                 });
               });
             }

@@ -45,7 +45,7 @@ export default {
           <el-carousel height="36vh" indicator-position="outside">
             <el-carousel-item
               ><img
-                style="width: 100%"
+                style="width: 100%; height: 100%; object-fit: cover"
                 src="../assets/images/home/img1.jpg"
                 alt=""
             /></el-carousel-item>

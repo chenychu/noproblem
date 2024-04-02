@@ -5,48 +5,60 @@
         <h1>正在热映<button class="more">查看更多</button></h1>
         <el-divider />
         <div class="upfilm">
-          <div class="up01">
-            <img
-              @click="toTicket"
-              src="../assets/images/filmimg/film01.jpg"
-              alt=""
-            />
-            <button class="text" @click="toTicket">购票</button>
+          <div v-for="film in films" :key="film.id">
+            <div v-if="isCurrentTimeGreaterThanPlayDate(film.playDate)">
+              <img
+                  @click="toTicket(film.id)"
+                  :src="film.coverUrl"
+                  alt=""
+              />
+              <p>{{film.name}}</p>
+              <button class="text" @click="toTicket(film.id)">购票</button>
+            </div>
           </div>
-          <div class="up02">
-            <img src="../assets/images/filmimg/film02.jpg" alt="" />
-            <button class="text" @click="toTicket">购票</button>
-          </div>
-          <div class="up03">
-            <img src="../assets/images/filmimg/film03.jpg" alt="" />
-            <button class="text" @click="toTicket">购票</button>
-          </div>
-          <div class="up04">
-            <img src="../assets/images/filmimg/film04.jpg" alt="" />
-            <button class="text" @click="toTicket">购票</button>
-          </div>
+
+<!--          <div class="up02">-->
+<!--            <img src="../assets/images/filmimg/film02.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">购票</button>-->
+<!--          </div>-->
+<!--          <div class="up03">-->
+<!--            <img src="../assets/images/filmimg/film03.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">购票</button>-->
+<!--          </div>-->
+<!--          <div class="up04">-->
+<!--            <img src="../assets/images/filmimg/film04.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">购票</button>-->
+<!--          </div>-->
         </div>
         <h1 style="margin-top: 2vh">
           即将上映<button class="more">查看更多</button>
         </h1>
         <el-divider />
         <div class="willfilm">
-          <div class="will01">
-            <img src="../assets/images/filmimg/film05.jpg" alt="" />
-            <button class="text" @click="toTicket">预约</button>
+          <div v-for="film in films" :key="film.id">
+            <div v-if="!isCurrentTimeGreaterThanPlayDate(film.playDate)">
+              <img
+                  @click="toTicket(film.id)"
+                  :src="film.coverUrl"
+                  alt=""
+              />
+              <p>{{film.name}}</p>
+              <button class="text" @click="toTicket(film.id)">预定</button>
+            </div>
           </div>
-          <div class="will02">
-            <img src="../assets/images/filmimg/film06.jpg" alt="" />
-            <button class="text" @click="toTicket">预约</button>
-          </div>
-          <div class="will03">
-            <img src="../assets/images/filmimg/film07.jpg" alt="" />
-            <button class="text" @click="toTicket">预约</button>
-          </div>
-          <div class="will04">
-            <img src="../assets/images/filmimg/film08.jpg" alt="" />
-            <button class="text" @click="toTicket">预约</button>
-          </div>
+
+<!--          <div class="will02">-->
+<!--            <img src="../assets/images/filmimg/film06.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">预约</button>-->
+<!--          </div>-->
+<!--          <div class="will03">-->
+<!--            <img src="../assets/images/filmimg/film07.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">预约</button>-->
+<!--          </div>-->
+<!--          <div class="will04">-->
+<!--            <img src="../assets/images/filmimg/film08.jpg" alt="" />-->
+<!--            <button class="text" @click="toTicket">预约</button>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="right">
@@ -102,14 +114,65 @@
 </template>
 
 <script>
+import { reactive } from 'vue'
+import {listFilm} from "../api/system/movie/film.js"
+import {Carousel} from "ant-design-vue";
+
+const filmQuery = reactive({
+  pageNum: 1,
+  pageSize: 20,
+  id: null,
+  deleteFlag: null,
+  categoryId: null,
+  name: null,
+  coverUrl: null,
+  duration: null,
+  favoriteNum: null,
+  introduction: null,
+  languageId: null,
+  likeNum: null,
+  playDate: null,
+  playTypeId: null,
+  recommend: null,
+  score: null,
+  video: null
+})
 export default {
   data() {
-    return {};
+    return {
+      films:[],
+      randomFilms:[],
+    };
+  },
+  components:{
+    "a-carousel":Carousel,
+  },
+  created() {
+    this.getFilmList();
   },
   methods: {
-    toTicket() {
-      window.location.href = "/ticket";
+     toTicket(id) {
+      window.location.href = "/ticket?id=" + id;
     },
+    async getFilmList(){
+      try {
+        const response = await listFilm(filmQuery);
+        this.films = response.rows;
+        // this.randomFilms = this.films.sort(() => Math.random() - 0.5).slice(0, 4);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    isCurrentTimeGreaterThanPlayDate(playDate) {
+      // 获取当前时间
+      const currentTime = new Date();
+
+      // 将playDate转换为Date对象
+      const playDateObj = new Date(playDate);
+
+      // 比较当前时间和playDate
+      return currentTime > playDateObj;
+    }
   },
 };
 </script>
@@ -271,5 +334,16 @@ body {
       }
     }
   }
+}
+.ant-carousel :deep(.slick-slide) {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel :deep(.slick-slide h3) {
+  color: #fff;
 }
 </style>

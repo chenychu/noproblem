@@ -1,12 +1,12 @@
-import request from '@/utils/request'
+import request from '@/utils/request.js'
 
 // 查询缴费分类列表
 export function listCategory(query) {
   return request({
     url: '/living/category/list',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     params: query
   })
@@ -16,9 +16,9 @@ export function listCategory(query) {
 export function getCategory(id) {
   return request({
     url: '/living/category/' + id,
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get'
   })
 }

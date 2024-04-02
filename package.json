@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
+    "ant-design-vue": "^4.0.0-rc.6",
     "axios": "^1.6.8",
-    "element-plus": "^2.6.1",
+    "element-plus": "^2.6.3",
     "js-cookie": "^3.0.5",
     "jsencrypt": "^3.0.0-rc.1",
     "pinia": "^2.1.7",

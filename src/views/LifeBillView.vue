@@ -19,17 +19,8 @@
         <button>立即充值</button>
       </div>
       <div class="bills">
-        <div class="bill water">
-          水费
-          <div class="record">暂无缴费记录</div>
-        </div>
-        <div class="bill elec">
-          电费
-          <div class="record">暂无缴费记录</div>
-        </div>
-        <div class="bill gas">
-          燃气
-          <div class="record">暂无缴费记录</div>
+        <div v-for="category in categories" :key="category.id">
+          <component :is="getComponentType(category)" :category="category" :recharges="recharges" />
         </div>
       </div>
     </div>
@@ -46,10 +37,111 @@
 
 <script>
 import Weather from "../components/weather.vue";
+import {listRecord, getRecord, delRecord, addRecord, updateRecord} from "../api/system/living/record.js"
+import {listCategory} from "../api/system/living/category.js"
+import { listRecharge, getRecharge, delRecharge, addRecharge, updateRecharge } from "@/api/system/living/recharge";
+import Bill from '../components/lifeBill.vue'
+
+import { reactive } from 'vue'
+
+const categoryQuery = reactive({
+  pageNum: 1,
+  pageSize: 10,
+  id: null,
+  deleteFlag: null,
+  name: null,
+  sort: null,
+  appType: null,
+  imgUrl: null,
+  type: null
+})
+const recordQuery = reactive({
+  pageNum: 1,
+  pageSize: 10,
+  id: null,
+  deleteFlag: null,
+  paymentAmount: null,
+  paymentTypeId: null,
+  rechargeTime: null,
+  type: null,
+  ruleId: null,
+  status: null,
+  phoneLivingId: null,
+  title: null
+})
+const rechargeQuery = reactive({
+  pageNum: 1,
+  pageSize: 10,
+  id: null,
+  deleteFlag: null,
+  amount: null,
+  categoryId: null,
+  billNo: null,
+  paymentNo: null,
+  paymentTypeId: null,
+  rechargeTime: null,
+  userId: null,
+  payStatus: null,
+  title: null,
+  chargeUnit: null,
+  ownerName: null
+})
+
 export default {
   name: "lifebill",
   components: {
     Weather,
+    Bill,
+  },
+  data(){
+    return{
+      records: [],
+      categories:[],
+      recharges:[],
+    }
+  },
+  created() {
+    this.getRecords();//电话缴费记录
+    this.getCategory();//缴费分类
+    this.getRecharge();//水 电 燃气缴费记录
+  },
+  methods: {
+    async getRecords() {
+      try {
+        const response = await listRecord(recordQuery);
+        this.records = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getCategory(){
+      try {
+        const response = await listCategory(categoryQuery);
+        this.categories = response.rows;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getRecharge(){
+      try {
+        const response = await listRecharge(rechargeQuery);
+        this.recharges = response.rows;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    getComponentType(category) {
+      switch (category.id) {
+        case 18:
+          return 'Bill'
+        case 19:
+          return 'Bill'
+        case 20:
+          return 'Bill'
+        default:
+          return ''
+      }
+    }
   },
 };
 </script>

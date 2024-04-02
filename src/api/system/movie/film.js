@@ -4,9 +4,9 @@ import request from '@/utils/request'
 export function listFilm(query) {
   return request({
     url: '/movie/film/list',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     params: query
   })
@@ -16,9 +16,9 @@ export function listFilm(query) {
 export function getFilm(id) {
   return request({
     url: '/movie/film/detail/' + id,
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get'
   })
 }

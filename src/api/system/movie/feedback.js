@@ -4,10 +4,10 @@ import request from '@/utils/request'
 export function listFeedback(query) {
   return request({
     url: '/movie/feedback/list',
-    method: 'get',
     headers: {
       isToken: false
     },
+    method: 'get',
     params: query
   })
 }

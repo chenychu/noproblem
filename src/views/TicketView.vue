@@ -2,17 +2,19 @@
   <div class="contains">
     <div class="main">
       <div class="info">
-        <h1 class="filmname">周处除三害</h1>
+        <h1 class="filmname">{{ film.name }}</h1>
         <div class="btns">
-          <button style="color: white; background-color: rgb(223, 45, 45)">
-            想看
+          <button style="color: white; background-color: rgb(223, 45, 45)" @click="getfilmLike">
+            想看:{{film.favoriteNum}}
           </button>
-          <button>评分</button>
+          <button style="color: white; background-color: rgb(223, 45, 45)" @click="getFavorite">
+            看过:{{film.likeNum}}
+          </button>
+          <button>评分:{{film.score}}</button>
         </div>
         <div class="theinfo">
           <div class="filminfo">
-            通缉犯陈桂林生命将尽，却发现自己在通缉榜上只排名第三，他决心查出前两名通缉犯的下落，并将他们一一除掉。陈桂林以为自己已成为当代的周处除三害，却没想到永远参不透的贪嗔痴，才是人生终要面对的罪与罚。<br />
-            电影引用的“周处除三害”典故，见于《晋书·周处传》和《世说新语》。据记载，少年周处身形魁梧，武力高强，却横行乡里，为邻人所厌。后周处只身斩杀猛虎孽蛟，他自己也浪子回头、改邪归正，至此三害皆除。
+            {{ film.introduction }}
           </div>
           <div class="actorinfo">
             <div class="actor">
@@ -44,7 +46,33 @@
   </div>
 </template>
 
-<script setup>
+<script>
+import {getFilm,getFilmLikeById,getFilmFavorite} from "@/api/system/movie/film.js";
+
+export default {
+  data(){
+    return{
+      film:[],
+    }
+  },
+  created() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filmId = urlParams.get('id');
+    this.getfilm(filmId)
+  },
+  methods:{
+    async getfilm(filmId){
+      const response = await getFilm(filmId)
+      this.film = response.data;
+    },
+    async getfilmLike(filmId){
+      const response = await getFilmLikeById(filmId)
+    },
+    async getFavorite(filmId){
+      const response = await getFilmFavorite(filmId)
+    },
+  }
+}
 </script>
 
 <style lang="scss" scoped>

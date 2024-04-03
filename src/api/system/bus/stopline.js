@@ -4,9 +4,9 @@ import request from '@/utils/request'
 export function listStopline(query) {
   return request({
     url: '/bus/stopline/list',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     params: query
   })
@@ -16,9 +16,9 @@ export function listStopline(query) {
 export function getStopline(id) {
   return request({
     url: '/bus/stopline/' + id,
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get'
   })
 }

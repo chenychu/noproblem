@@ -11,7 +11,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {  //配置跨域
       '/api': {
-        target: 'http://172.18.56.46:8080/',
+        target: 'http://101.37.166.30:8899/',
         changeOrigin: true,  //允许跨域
         rewrite: (path) => path.replace(/^\/api/, '')
       },

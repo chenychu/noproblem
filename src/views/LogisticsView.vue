@@ -11,62 +11,93 @@
       </div>
     </div>
     <div class="logistics">
-      <div class="collection">
-        <div class="logistic">百世快递</div>
-        <div class="logistic">当当快递</div>
-        <div class="logistic">德邦快递</div>
-        <div class="logistic">递四方</div>
-        <div class="logistic">凡宇快递</div>
-        <div class="logistic">华强快递</div>
-        <div class="logistic">极兔快递</div>
-        <div class="logistic">加运美</div>
-        <div class="logistic">佳吉快运</div>
-        <div class="logistic">佳怡物流</div>
-        <div class="logistic">嘉里大通</div>
-        <div class="logistic">京东快递</div>
-        <div class="logistic">聚美优品</div>
-        <div class="logistic">跨越速运</div>
-        <div class="logistic">快捷快递</div>
-        <div class="logistic">联邦快递</div>
-        <div class="logistic">龙邦速运</div>
-        <div class="logistic">民邦速运</div>
-        <div class="logistic">民航快递</div>
-        <div class="logistic">全晨快递</div>
-        <div class="logistic">全峰快递</div>
-        <div class="logistic">全一快递</div>
-        <div class="logistic">申通快递</div>
-        <div class="logistic">圣安物流</div>
-        <div class="logistic">盛辉物流</div>
-        <div class="logistic">顺丰速运</div>
-        <div class="logistic">速尔快递</div>
-        <div class="logistic">天天快递</div>
-        <div class="logistic">万象物流</div>
-        <div class="logistic">小红帽</div>
-        <div class="logistic">信丰物流</div>
-        <div class="logistic">易通达</div>
-        <div class="logistic">优速快递</div>
-        <div class="logistic">圆通速递</div>
-        <div class="logistic">远成物流</div>
-        <div class="logistic">运通速运</div>
-        <div class="logistic">韵达快递</div>
-        <div class="logistic">增益快递</div>
-        <div class="logistic">宅急送</div>
-        <div class="logistic">芝麻开门</div>
-        <div class="logistic">中国邮政</div>
-        <div class="logistic">中铁飞豹</div>
-        <div class="logistic">AAE</div>
-        <div class="logistic">Aramex</div>
-        <div class="logistic">DHL</div>
-        <div class="logistic">EMS</div>
-        <div class="logistic">OCS</div>
-        <div class="logistic">TNT</div>
-        <div class="logistic">UPS</div>
+      <div class="collection" v-for="logistic in logistics" :key="logistic.id">
+        <div class="logistic">{{ logistic.name }}</div>
+<!--        <div class="logistic">当当快递</div>-->
+<!--        <div class="logistic">德邦快递</div>-->
+<!--        <div class="logistic">递四方</div>-->
+<!--        <div class="logistic">凡宇快递</div>-->
+<!--        <div class="logistic">华强快递</div>-->
+<!--        <div class="logistic">极兔快递</div>-->
+<!--        <div class="logistic">加运美</div>-->
+<!--        <div class="logistic">佳吉快运</div>-->
+<!--        <div class="logistic">佳怡物流</div>-->
+<!--        <div class="logistic">嘉里大通</div>-->
+<!--        <div class="logistic">京东快递</div>-->
+<!--        <div class="logistic">聚美优品</div>-->
+<!--        <div class="logistic">跨越速运</div>-->
+<!--        <div class="logistic">快捷快递</div>-->
+<!--        <div class="logistic">联邦快递</div>-->
+<!--        <div class="logistic">龙邦速运</div>-->
+<!--        <div class="logistic">民邦速运</div>-->
+<!--        <div class="logistic">民航快递</div>-->
+<!--        <div class="logistic">全晨快递</div>-->
+<!--        <div class="logistic">全峰快递</div>-->
+<!--        <div class="logistic">全一快递</div>-->
+<!--        <div class="logistic">申通快递</div>-->
+<!--        <div class="logistic">圣安物流</div>-->
+<!--        <div class="logistic">盛辉物流</div>-->
+<!--        <div class="logistic">顺丰速运</div>-->
+<!--        <div class="logistic">速尔快递</div>-->
+<!--        <div class="logistic">天天快递</div>-->
+<!--        <div class="logistic">万象物流</div>-->
+<!--        <div class="logistic">小红帽</div>-->
+<!--        <div class="logistic">信丰物流</div>-->
+<!--        <div class="logistic">易通达</div>-->
+<!--        <div class="logistic">优速快递</div>-->
+<!--        <div class="logistic">圆通速递</div>-->
+<!--        <div class="logistic">远成物流</div>-->
+<!--        <div class="logistic">运通速运</div>-->
+<!--        <div class="logistic">韵达快递</div>-->
+<!--        <div class="logistic">增益快递</div>-->
+<!--        <div class="logistic">宅急送</div>-->
+<!--        <div class="logistic">芝麻开门</div>-->
+<!--        <div class="logistic">中国邮政</div>-->
+<!--        <div class="logistic">中铁飞豹</div>-->
+<!--        <div class="logistic">AAE</div>-->
+<!--        <div class="logistic">Aramex</div>-->
+<!--        <div class="logistic">DHL</div>-->
+<!--        <div class="logistic">EMS</div>-->
+<!--        <div class="logistic">OCS</div>-->
+<!--        <div class="logistic">TNT</div>-->
+<!--        <div class="logistic">UPS</div>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {reactive} from "vue";
+import {listLogistics_company} from "@/api/system/logistics-inquiry/logistics_company.js";
+
+const companyQuery = reactive({
+  pageNum: 1,
+  pageSize: 10,
+  id: null,
+  deleteFlag: null,
+  name: null,
+  sort: null,
+  imgUrl: null,
+  introduce: null,
+  shippingMethod: null,
+  phone: null
+})
+export default {
+  data(){
+    return{
+      logistics:[],
+    }
+  },
+  created() {
+    this.getLogistic()
+  },
+  methods:{
+    async getLogistic(){
+      const response = await listLogistics_company(companyQuery)
+      this.logistics=response.rows;
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

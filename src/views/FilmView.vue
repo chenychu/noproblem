@@ -64,49 +64,59 @@
       <div class="right">
         <h1>今日票房(综合)</h1>
         <div class="today">
-          <div class="thefilm" style="color: orangered">
-            哥斯拉大战金刚2
-            <div>7332.51万元</div>
+          <div class="thefilm" v-for="film in sortedFilms" :key="film.id">
+            <div v-if="isCurrentTimeGreaterThanPlayDate(film.playDate)">
+              <p>{{film.name}} {{film.saleNum}}</p>
+            </div>
           </div>
-          <div class="thefilm">
-            功夫熊猫4
-            <div>1419.39万元</div>
-          </div>
-          <div class="thefilm">
-            我们一起摇太阳
-            <div>919.48万元</div>
-          </div>
-          <div class="thefilm">
-            周处除三害
-            <div>522.63万元</div>
-          </div>
-          <div class="thefilm">
-            坠落的审判
-            <div>308.03万元</div>
-          </div>
+<!--          <div class="thefilm" style="color: orangered">-->
+<!--            哥斯拉大战金刚2-->
+<!--            <div>7332.51万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            功夫熊猫4-->
+<!--            <div>1419.39万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            我们一起摇太阳-->
+<!--            <div>919.48万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            周处除三害-->
+<!--            <div>522.63万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            坠落的审判-->
+<!--            <div>308.03万元</div>-->
+<!--          </div>-->
         </div>
         <h1>最受期待</h1>
         <div class="expect">
-          <div class="thefilm">
-            沙丘2
-            <div>275.67万元</div>
+          <div class="thefilm" v-for="film in likeFilms" :key="film.id">
+            <div v-if="!isCurrentTimeGreaterThanPlayDate(film.playDate)">
+              <p>{{film.name}} {{film.likeNum}}</p>
+            </div>
           </div>
-          <div class="thefilm">
-            熊出没·逆转时空
-            <div>265.86万元</div>
-          </div>
-          <div class="thefilm">
-            第二十条
-            <div>97.32万元</div>
-          </div>
-          <div class="thefilm">
-            被我弄丢的你
-            <div>86.71万元</div>
-          </div>
-          <div class="thefilm">
-            飞驰人生2
-            <div>85.37万元</div>
-          </div>
+<!--          <div class="thefilm">-->
+<!--            沙丘2-->
+<!--            <div>275.67万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            熊出没·逆转时空-->
+<!--            <div>265.86万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            第二十条-->
+<!--            <div>97.32万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            被我弄丢的你-->
+<!--            <div>86.71万元</div>-->
+<!--          </div>-->
+<!--          <div class="thefilm">-->
+<!--            飞驰人生2-->
+<!--            <div>85.37万元</div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
@@ -142,6 +152,7 @@ export default {
     return {
       films:[],
       randomFilms:[],
+      // sortFilms:[],
     };
   },
   components:{
@@ -149,6 +160,16 @@ export default {
   },
   created() {
     this.getFilmList();
+  },
+  computed:{
+    sortedFilms() {
+      // 根据票房对电影进行排序
+      return this.sortFilms = this.films.sort((a, b) => b.saleNum - a.saleNum);
+    },
+    likeFilms() {
+      // 根据票房对电影进行排序
+      return this.sortFilms = this.films.sort((a, b) => b.likeNum - a.likeNum);
+    },
   },
   methods: {
      toTicket(id) {
@@ -172,7 +193,7 @@ export default {
 
       // 比较当前时间和playDate
       return currentTime > playDateObj;
-    }
+    },
   },
 };
 </script>
@@ -278,6 +299,7 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
             div {
               height: 100%;
               width: 11vw;
@@ -318,6 +340,8 @@ body {
             flex-direction: column;
             flex-wrap: nowrap;
             justify-content: space-between;
+            max-height: 300px; /* 你可以根据需要调整这个值 */
+            overflow-y: scroll;
             .thefilm {
               display: flex;
               align-items: center;

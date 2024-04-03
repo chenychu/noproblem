@@ -4,9 +4,9 @@ import request from '@/utils/request'
 export function listLine(query) {
   return request({
     url: '/bus/line/list',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     params: query
   })
@@ -16,9 +16,9 @@ export function listLine(query) {
 export function getLine(id) {
   return request({
     url: '/bus/line/' + id,
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get'
   })
 }

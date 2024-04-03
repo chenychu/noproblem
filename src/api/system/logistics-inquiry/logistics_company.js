@@ -4,9 +4,9 @@ import request from '@/utils/request'
 export function listLogistics_company(query) {
   return request({
     url: '/logistics-inquiry/logistics_company/list',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     params: query
   })
@@ -16,9 +16,9 @@ export function listLogistics_company(query) {
 export function getLogistics_company(id) {
   return request({
     url: '/logistics-inquiry/logistics_company/' + id,
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get'
   })
 }

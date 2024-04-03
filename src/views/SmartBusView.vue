@@ -2,7 +2,7 @@
   <div class="contains">
     <div class="first">
       <div class="orders">
-        <div class="user">用户:孙刚斌</div>
+        <div class="user">用户名</div>
         <div
           style="
             margin: 1vh 0 0 -1vw;

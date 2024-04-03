@@ -2,7 +2,7 @@
   <div class="contains">
     <div class="left">
       <div class="userinfo">
-        <div class="user">孙刚斌</div>
+        <div class="user">用户名</div>
         <div
           style="margin: 1vh 0; display: flex; justify-content: space-evenly"
         >
